@@ -1,4 +1,4 @@
-# 🛠️ Sistema de Gestión Integral - Ferretería Don Villa
+# 🛠️ Sistema de Inventario - Ferretería Don Villa
 
 Aplicación web full stack diseñada a medida para automatizar y optimizar la administración completa de **Ferretería Don Villa**. Permite controlar desde el stock de productos, cálculo automático de impuestos (IVA) e importación masiva desde Excel, hasta el registro en tiempo real de ventas, compras a proveedores y gestión de personal.
 
