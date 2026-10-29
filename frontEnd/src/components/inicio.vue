@@ -24,7 +24,7 @@ const obtenerDatos = async () => {
     
     // 1. Obtener Configuración Global desde el Backend
     try {
-      const resConfig = await fetch('http://localhost:3000/api/configuracion')
+      const resConfig = await fetch('https://ferreteria-back-end.onrender.com/api/configuracion')
       if (resConfig.ok) {
         const dataConfig = await resConfig.json()
         if (dataConfig.stock_minimo_global !== undefined) {
@@ -36,7 +36,7 @@ const obtenerDatos = async () => {
     }
 
     // 2. Obtener Productos
-    const res = await fetch('http://localhost:3000/api/productos')
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/productos')
     if (!res.ok) throw new Error('No se pudo obtener la información del servidor')
     
     const data = await res.json()

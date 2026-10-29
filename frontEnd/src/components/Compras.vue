@@ -48,7 +48,7 @@ watch(fechaFiltro, () => {
 const obtenerProductos = async () => {
   try {
     cargando.value = true
-    const res = await fetch('http://localhost:3000/api/productos')
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/productos')
     if (res.ok) {
       const data = await res.json()
       productos.value = Array.isArray(data) ? data : []
@@ -65,7 +65,7 @@ const obtenerProductos = async () => {
 const obtenerHistorial = async () => {
   try {
     cargandoHistorial.value = true
-    const res = await fetch('http://localhost:3000/api/compras')
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/compras')
     if (!res.ok) throw new Error('Error al obtener compras')
     const data = await res.json()
     historialCompras.value = Array.isArray(data) ? data : []
@@ -174,7 +174,7 @@ const crearNuevoProducto = async () => {
       stock_actual: 0 
     }
 
-    const res = await fetch('http://localhost:3000/api/productos', {
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/productos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -229,7 +229,7 @@ const procesarCompra = async () => {
       }))
     }
 
-    const res = await fetch('http://localhost:3000/api/compras', {
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/compras', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -258,7 +258,7 @@ const anularCompra = async (id) => {
 
   try {
     cargandoHistorial.value = true
-    const res = await fetch(`http://localhost:3000/api/compras/${id}`, {
+    const res = await fetch(`https://ferreteria-back-end.onrender.com/api/compras/${id}`, {
       method: 'DELETE'
     })
 

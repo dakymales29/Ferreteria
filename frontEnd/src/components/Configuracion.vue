@@ -29,7 +29,7 @@ const exitoUsuarios = ref('')
 const obtenerConfiguracion = async () => {
   try {
     cargando.value = true
-    const res = await fetch('http://localhost:3000/api/configuracion')
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/configuracion')
     if (!res.ok) throw new Error('Error al cargar la configuración')
     
     const data = await res.json()
@@ -53,7 +53,7 @@ const obtenerConfiguracion = async () => {
 const obtenerUsuarios = async () => {
   try {
     cargandoUsuarios.value = true
-    const res = await fetch('http://localhost:3000/api/usuarios')
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/usuarios')
     if (!res.ok) throw new Error('Error al obtener usuarios')
     usuarios.value = await res.json()
   } catch (err) {
@@ -83,7 +83,7 @@ const guardarConfiguracion = async () => {
       stock_minimo_global: parseFloat(stockMinimoGlobal.value) || 5
     }
 
-    const res = await fetch('http://localhost:3000/api/configuracion', {
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/configuracion', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -108,7 +108,7 @@ const crearUsuario = async () => {
     errorUsuarios.value = ''
     exitoUsuarios.value = ''
 
-    const res = await fetch('http://localhost:3000/api/usuarios', {
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/usuarios', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(nuevoUsuario.value)
@@ -132,7 +132,7 @@ const eliminarUsuario = async (id) => {
   if (!confirm('¿Estás seguro de eliminar este usuario?')) return
 
   try {
-    const res = await fetch(`http://localhost:3000/api/usuarios/${id}`, {
+    const res = await fetch(`https://ferreteria-back-end.onrender.com/api/usuarios/${id}`, {
       method: 'DELETE'
     })
     if (!res.ok) throw new Error('Error al eliminar usuario')

@@ -46,14 +46,14 @@ const obtenerDatosIniciales = async () => {
     cargando.value = true
     
     // 1. Productos
-    const resProd = await fetch('http://localhost:3000/api/productos')
+    const resProd = await fetch('https://ferreteria-back-end.onrender.com/api/productos')
     if (resProd.ok) {
       const dataProd = await resProd.json()
       productos.value = Array.isArray(dataProd) ? dataProd : []
     }
 
     // 2. Configuración (IVA)
-    const resConfig = await fetch('http://localhost:3000/api/configuracion')
+    const resConfig = await fetch('https://ferreteria-back-end.onrender.com/api/configuracion')
     if (resConfig.ok) {
       const dataConfig = await resConfig.json()
       const config = Array.isArray(dataConfig) ? dataConfig[0] : dataConfig
@@ -73,7 +73,7 @@ const obtenerDatosIniciales = async () => {
 const obtenerHistorial = async () => {
   try {
     cargandoHistorial.value = true
-    const res = await fetch('http://localhost:3000/api/ventas')
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/ventas')
     if (!res.ok) throw new Error('Error al obtener historial')
     const data = await res.json()
     historialVentas.value = Array.isArray(data) ? data : []
@@ -243,7 +243,7 @@ const procesarVenta = async () => {
       }))
     }
 
-    const res = await fetch('http://localhost:3000/api/ventas', {
+    const res = await fetch('https://ferreteria-back-end.onrender.com/api/ventas', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -272,7 +272,7 @@ const anularVenta = async (id) => {
 
   try {
     cargandoHistorial.value = true
-    const res = await fetch(`http://localhost:3000/api/ventas/${id}`, {
+    const res = await fetch(`https://ferreteria-back-end.onrender.com/api/ventas/${id}`, {
       method: 'DELETE'
     })
 
